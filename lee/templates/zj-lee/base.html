@@ -1,16 +1,15 @@
-{%extends 'zj-lee/base.html'%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  {% if title %}
+  <title> ZJLEE - {{title}}</title>
+  {% else %}
+    <title> ZJLEE </title>
+  {% endif %}
 </head>
 <body>
-{% block content %}
-{{block.super}}
-    <h1> Welcome To Awwards App </h1>
-
-{% endblock %}
+    {% block content %} {%endblock%}
 </body>
 </html>
