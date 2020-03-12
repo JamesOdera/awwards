@@ -1,0 +1,35 @@
+{%extends 'zj-lee/base.html'%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+{% block content %}
+{{block.super}}
+<div class="col-md-6">
+    <form method="POST">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <h1 class=""> Join Today </h1>
+              {{ form.as_p }}
+            <div class="form-group">
+                <button class="btn btn-outline-info" type="submit" > Sign Up </button>
+            </div>
+        </fieldset>
+    </form>
+
+    <div class="border-top pt-3">
+        <small class="text-muted">
+            already have an account?<a href="" class="ml-2"> sign in </a>
+        </small>
+    </div>
+
+</div>
+{% endblock %}
+    
+</body>
+</html>
