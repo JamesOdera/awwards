@@ -11,6 +11,31 @@
 {{block.super}}
     <h1 class='text-center' > Welcome To Awwards App </h1>
 
+    {% for post in posts %}
+    <div class="col-md-7">
+     <div class="panel panel-default">
+         <div class="panel-heading">
+            <img class="img-circle" src=" {{ post.author.profile.image.url }} " width="50" height="50">
+            <p> {{ post.author }} </p>
+         </div>
+         <div class="panel-body">
+            {% if post.cover %}
+            <img src="{{ post.cover.url}}" alt="{{ post.title }}" width="300" height="300">
+          {% else %}
+          <p></p>
+           {% endif %} 
+         </div>
+            <div class="article-metadata">
+                 
+                 <p>{{ post.pub_date|timesince }} ago </p>
+             </div>
+             <h2> {{ post.title }} </h2>
+             <p> {{ post.content }} </p>
+             <a href="{}">Comments: {{ post.comments.count }}</a>
+         </div>
+         </div>
+    {% endfor %}
+
 {% endblock %}
 </body>
 </html>
