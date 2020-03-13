@@ -11,9 +11,29 @@
 
 {% block content %}
 {{block.super}}
-
-<h1> {{ user.username}} </h1>
-
+<div class="container">
+    <div class="row">
+    <div class="profile-header-container">
+        <img class="img-circle" src="{{ user.profile.image.url }}" width="200" height="200">
+        <div class="rank-label-container">
+            <h2 class="label label-default rank-label">{{ user.username }}</h2>
+            <p class="label label-default rank-label">{{ user.email }}</p>
+        </div>
+        <h2 class="text center">{{ user.bio }}</h2>
+    </div>
+    </div>
+    <!-- <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <h1 class=""> Profile info </h1>
+              {{ user_form |crispy }}
+              {{ profile_form |crispy }}
+            <div class="form-group">
+                <button class="btn btn-info" type="submit" > Update </button>
+            </div>
+        </fieldset>
+    </form> -->
+</div>
 {% endblock %}
     
 </body>
