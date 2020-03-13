@@ -18,6 +18,5 @@ class PostListView(ListView):
     ordering = ['-pub_date']
     template_name = 'zj-lee/index.html'
 
-class PostDetailView(DetailView):
-    model = Post
+
     
