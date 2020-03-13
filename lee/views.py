@@ -10,13 +10,13 @@ def index(request):
     context = {
         'posts': Post.objects.all()
     }
-    return render(request, 'zj-lee/index.html', {"date": date,"images": images},context)
+    return render(request, 'lee/index.html', {"date": date,"images": images},context)
 
 class PostListView(ListView):
     model = Post
     context_object_name = 'posts'
     ordering = ['-pub_date']
-    template_name = 'zj-lee/index.html'
+    template_name = 'lee/index.html'
 
 class PostCreateView(CreateView):
     model = Post

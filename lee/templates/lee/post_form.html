@@ -12,24 +12,19 @@
 {% block content %}
 {{block.super}}
 <div class="col-md-6">
-    <form method="POST">
+    <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         <fieldset class="form-group">
-            <h1 class=""> Log In </h1>
+            <h1 class=""> lee </h1>
+              
               {{ form| crispy }}
             <div class="form-group">
-                <button class="btn btn-outline-info" type="submit" > Login </button>
+                <button class="btn btn-info" type="submit" > post </button>
             </div>
         </fieldset>
     </form>
-
-    <div class="border-top pt-3">
-        <small class="text-muted">
-            need an account?<a href="{% url 'register' %}" class="ml-2"> Sign Up Now </a>
-        </small>
-    </div>
-
 </div>
+
 {% endblock %}
     
 </body>
