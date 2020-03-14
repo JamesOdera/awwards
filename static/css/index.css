@@ -76,7 +76,6 @@ h1
 }
 .view p {
     font-family: Georgia, serif;
-    font-style: italic;
     font-size: 12px;
     position: relative;
     color: #fff;
@@ -166,7 +165,6 @@ h1
 .lee {
     background-image: url("https://wallpaperaccess.com/full/334735.jpg");
     background-size: cover;
-    text-align: center;
     padding: 30px;
   }
   
@@ -176,8 +174,8 @@ h1
     color: aliceblue;
     width: 70%;
     margin-left: 170px;
-    margin-top: 100px;
-    margin-bottom: 120px;
+    margin-top: 60px;
+    margin-bottom: 90px;
   }
 
   
@@ -270,4 +268,66 @@ h1
     color: #b12f27;
     text-shadow: 0 1px 0 rgba(255,255,255,0.3);
   }
+
+  .button {
+    background-color: rgb(1, 202, 206);
+    border: none;
+    color: rgb(255, 255, 255);
+    padding: 10px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border: 1px solid #51D2B7;
+    overflow: hidden;
+    width: 130px;
+  }
+  
+  .button:hover {
+    background-color: transparent;
+    color: rgb(0, 251, 255);
+  }
+
+  .button-btn {
+    background-color: transparent;
+    border: none;
+    color: rgb(255, 255, 255);
+    padding: 10px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border: 1px solid #51D2B7;
+    overflow: hidden;
+    width: 130px;
+  }
+  
+  .button-btn:hover {
+    background-color: transparent;
+    color: rgb(0, 251, 255);
+  }
+
+  /* a {
+    position: absolute;
+    background-color: rgb(0, 251, 255);
+    border: none;
+    color: rgb(255, 255, 255);
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 16px;
+    -webkit-border-radius: 16px;
+    -moz-border-radius: 16px;
+    border: 1px solid #51D2B7;
+    overflow: hidden;
+  } */
+  
   

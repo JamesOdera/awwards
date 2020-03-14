@@ -11,7 +11,7 @@ def index(request):
     context = {
         'posts': Post.objects.all()
     }
-    return render(request, 'lee/index.html', {"date": date,"images": images},context)
+    return render(request, 'lee/index.html', {"date": date, "images": images},context)
 
 class PostListView(ListView):
     model = Post
@@ -27,5 +27,13 @@ class PostCreateView(LoginRequiredMixin, CreateView):
         form.instance.author = self.request.user
         return super().form_valid(form)
 
+
+def convert_dates(dates):
+    day_number = dt.date.weekday(dates)
+
+    days = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday',"Sunday"]
+
+    day = days[day_number]
+    return day
 
     
