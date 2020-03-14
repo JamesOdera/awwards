@@ -12,20 +12,34 @@
     <h1 class='text-center' > Welcome To Awwards App </h1>
 
     {% for post in posts %}
-    <div class="col-md-7">
-     <div class="panel panel-default">
-         <div class="panel-heading">
+
+    <!--  -->
+    <!-- <div class="col-sm-4">
+        <div class="thumbnail">
+            <img src="{{ post.cover.url}}"  alt="{{ post.title }}" width="400" height="300">
+          <p><strong>{{ post.author }}</strong></p>
+          <p>{{ post.pub_date|timesince }} ago </p>
+          <h2> {{ post.title }} </h2>
+          <button class="btn">Buy Tickets</button>
+        </div>
+      </div> -->
+    <!--  -->
+    <div class="col-md-4">
+     <div class="media">
+         <div class="media-left">
             <img class="img-circle" src=" {{ post.author.profile.image.url }} " width="50" height="50">
-            <p> {{ post.author }} </p>
          </div>
-         <div class="panel-body">
+         <div class="media-body">
+            <p class="media-heading"> {{ post.author }} </p>
+         </div>
+         <div class="media-body">
             {% if post.cover %}
-            <img src="{{ post.cover.url}}" alt="{{ post.title }}" width="300" height="300">
+            <img src="{{ post.cover.url}}"  alt="{{ post.title }}" width="300" height="300">
           {% else %}
           <p></p>
            {% endif %} 
          </div>
-            <div class="article-metadata">
+            <div class="caption">
                  
                  <p>{{ post.pub_date|timesince }} ago </p>
              </div>
@@ -35,20 +49,7 @@
          </div>
          </div>
     {% endfor %}
-    <!-- <script>
-        window.onscroll = function() {myFunction()};
-        
-        var navbar = document.getElementById("navbar");
-        var sticky = navbar.offsetTop;
-        
-        function myFunction() {
-          if (window.pageYOffset >= sticky) {
-            navbar.classList.add("sticky")
-          } else {
-            navbar.classList.remove("sticky");
-          }
-        }
-        </script> -->
+
 {% endblock %}
 </body>
 </html>
