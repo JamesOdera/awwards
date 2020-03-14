@@ -10,7 +10,23 @@
 
 {% block content %}
 {{block.super}}
+
+<!-- <h3>Button with counter for people who likes to  click</h3>
+<p>
+  <a href="#" title="Love it" class="btn btn-counter multiple-count" data-count="0"><span>&#x2764;</span></a>
+  <a href="#" title="Love it" class="btn btn-counter multiple-count" data-count="0"><span>&#x2764;</span> Love it</a>
+</p> -->
+<!--  -->
     <h1 class='text-center' > Welcome To Awwards App </h1>
+    <div class="lee">
+        <div class="box">
+            
+            <h1 style="font-size: 50px; font-family: 'Dancing Script', cursive; font-weight: 900; color:rgb(149, 53, 69); "> Welcome To My </h1>
+            <h1 class='text-center' style="font-family: 'Dancing Script', cursive; font-weight: 900; font-size: 60px; color: purple;"> INSTAGRAM CLONE APP</h1>
+            
+        </div>
+        
+</div>
 <div class="container">
     {% for post in posts %}
 
@@ -32,9 +48,11 @@
             <h2>Hover Style #2</h2>
             <p>{{ post.pub_date|timesince }} ago </p>
             <p> {{ post.content }} </p>
+            <p><a href="#" title="Love it" class="btn btn-counter multiple-count" data-count="0"><span>&#x2764;</span></a></p>
             <a href="#" class="">Read More</a>
         </div>
     </div>
+    
     <!-- <div class="col-md-4">
      <div class="media">
          <div class="media-left">
@@ -61,6 +79,36 @@
          </div> -->
     {% endfor %}
 </div>
+
+<script>
+    /* 
+ * Love button for Design it & Code it
+ * http://designitcodeit.com/i/9
+ */
+$('.btn-counter').on('click', function(event, count) {
+  event.preventDefault();
+  
+  var $this = $(this),
+      count = $this.attr('data-count'),
+      active = $this.hasClass('active'),
+      multiple = $this.hasClass('multiple-count');
+  
+  // First method, allows to add custom function
+  // Use when you want to do an ajax request
+  /* if (multiple) {
+  $this.attr('data-count', ++count);
+  // Your code here
+  } else {
+  $this.attr('data-count', active ? --count : ++count).toggleClass('active');
+  // Your code here
+  } */
+  
+  // Second method, use when ... I dunno when but it looks cool and that's why it is here
+  $.fn.noop = $.noop;
+  $this.attr('data-count', ! active || multiple ? ++count : ++count  )[multiple ? 'noop' : 'toggleClass']('active');
+  
+});
+</script>
 {% endblock %}
 
 </body>
