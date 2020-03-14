@@ -7,10 +7,11 @@
     <title>Document</title>
 </head>
 <body>
+
 {% block content %}
 {{block.super}}
     <h1 class='text-center' > Welcome To Awwards App </h1>
-
+<div class="container">
     {% for post in posts %}
 
     <!--  -->
@@ -24,7 +25,17 @@
         </div>
       </div> -->
     <!--  -->
-    <div class="col-md-4">
+    <div class="view view-second">
+        <img src="{{ post.cover.url}}"  alt="{{ post.title }}" width="300" height="300">
+        <div class="mask"></div>
+        <div class="content">
+            <h2>Hover Style #2</h2>
+            <p>{{ post.pub_date|timesince }} ago </p>
+            <p> {{ post.content }} </p>
+            <a href="#" class="">Read More</a>
+        </div>
+    </div>
+    <!-- <div class="col-md-4">
      <div class="media">
          <div class="media-left">
             <img class="img-circle" src=" {{ post.author.profile.image.url }} " width="50" height="50">
@@ -47,9 +58,10 @@
              <p> {{ post.content }} </p>
              <a href="{}">Comments: {{ post.comments.count }}</a>
          </div>
-         </div>
+         </div> -->
     {% endfor %}
-
+</div>
 {% endblock %}
+
 </body>
 </html>
