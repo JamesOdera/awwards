@@ -11,65 +11,23 @@
 {% block content %}
 {{block.super}}
 
-<!-- <h3>Button with counter for people who likes to  click</h3>
-<p>
-  <a href="#" title="Love it" class="btn btn-counter multiple-count" data-count="0"><span>&#x2764;</span></a>
-  <a href="#" title="Love it" class="btn btn-counter multiple-count" data-count="0"><span>&#x2764;</span> Love it</a>
-</p> -->
-<!--  -->
+
     <div class="lee">
+      <h4 style="color: white; cursor: pointer;"><b> Site of the Day</b> March 15, 2020 </h4>
+      <i style="font-size:24px; float: right; color: white;" class="fa">&#xf1e0;</i>
+
+
         <div class="box">
             
-            <h1 style="font-size: 50px; font-family: 'Dancing Script', cursive; font-weight: 900; color: white; "> Welcome To My </h1>
-            <h1 class='text-center' style="font-family: 'Dancing Script', cursive; font-weight: 900; font-size: 60px; color: white;"> INSTAGRAM CLONE APP</h1>
+            <h1 style="font-size: 50px; font-weight: 900; color: white; "> News Blogg </h1>
+            <p class='text-center' style=" font-weight: 100; color: white;"> By james from Kenya</p>
             
         </div>
-        <a href=""><button class="button">Visit Site</button></a>
-       <button class="button-btn">Collect</button>
+        <a href="{% url 'login' %}"><button class="button">Visit Site</button></a>
+        <a href="{% url 'login' %}"> <button class="button-btn">Collect</button></a>
        
 </div>
 
-
-<div class="row">
-  <div class="col-md-4">
-    <div class="card">
-      <img src="/w3images/team1.jpg" alt="Jane" style="width:100%">
-      <div class="container">
-        <h2>Jane Doe</h2>
-        <p class="title">CEO & Founder</p>
-        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-        <p>jane@example.com</p>
-        <p><button class="button">Contact</button></p>
-      </div>
-    </div>
-  </div>
-
-  <div class="col-md-4">
-    <div class="card">
-      <img src="/w3images/team2.jpg" alt="Mike" style="width:100%">
-      <div class="container">
-        <h2>Mike Ross</h2>
-        <p class="title">Art Director</p>
-        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-        <p>mike@example.com</p>
-        <p><button class="button">Contact</button></p>
-      </div>
-    </div>
-  </div>
-  
-  <div class="col-md-4">
-    <div class="card">
-      <img src="/w3images/team3.jpg" alt="John" style="width:100%">
-      <div class="container">
-        <h2>John Doe</h2>
-        <p class="title">Designer</p>
-        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-        <p>john@example.com</p>
-        <p><button class="button">Contact</button></p>
-      </div>
-    </div>
-  </div>
-</div>
 <div class="container">
     {% for post in posts %}
 
@@ -77,11 +35,11 @@
         <img src="{{ post.cover.url}}"  alt="{{ post.title }}" width="300" height="300">
         <div class="mask"></div>
         <div class="content">
-            <h2>Hover Style #2</h2>
+            <h2>{{ post.title }}</h2>
             <p>{{ post.pub_date|timesince }} ago </p>
             <p> {{ post.content }} </p>
             <p><a href="#" title="Love it" class="btn btn-counter multiple-count" data-count="0"><span>&#x2764;</span></a></p>
-            <a href="#" class="">Read More</a>
+            <p><a href="{% url 'login' %}" class=""><button class="button"> Vote </button></a></p>
         </div>
     </div>
     
@@ -111,6 +69,15 @@
          </div> -->
     {% endfor %}
 </div>
+<button class="button" onclick="myFunction()"> dark mode</button>
+
+<script>
+function myFunction() {
+   var element = document.body;
+   element.classList.toggle("dark-mode");
+}
+</script>
+
 
 <script>
     /* 
