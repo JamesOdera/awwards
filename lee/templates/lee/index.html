@@ -28,20 +28,51 @@
        <button class="button-btn">Collect</button>
        
 </div>
+
+
+<div class="row">
+  <div class="col-md-4">
+    <div class="card">
+      <img src="/w3images/team1.jpg" alt="Jane" style="width:100%">
+      <div class="container">
+        <h2>Jane Doe</h2>
+        <p class="title">CEO & Founder</p>
+        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+        <p>jane@example.com</p>
+        <p><button class="button">Contact</button></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="card">
+      <img src="/w3images/team2.jpg" alt="Mike" style="width:100%">
+      <div class="container">
+        <h2>Mike Ross</h2>
+        <p class="title">Art Director</p>
+        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+        <p>mike@example.com</p>
+        <p><button class="button">Contact</button></p>
+      </div>
+    </div>
+  </div>
+  
+  <div class="col-md-4">
+    <div class="card">
+      <img src="/w3images/team3.jpg" alt="John" style="width:100%">
+      <div class="container">
+        <h2>John Doe</h2>
+        <p class="title">Designer</p>
+        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+        <p>john@example.com</p>
+        <p><button class="button">Contact</button></p>
+      </div>
+    </div>
+  </div>
+</div>
 <div class="container">
     {% for post in posts %}
 
-    <!--  -->
-    <!-- <div class="col-sm-4">
-        <div class="thumbnail">
-            <img src="{{ post.cover.url}}"  alt="{{ post.title }}" width="400" height="300">
-          <p><strong>{{ post.author }}</strong></p>
-          <p>{{ post.pub_date|timesince }} ago </p>
-          <h2> {{ post.title }} </h2>
-          <button class="btn">Buy Tickets</button>
-        </div>
-      </div> -->
-    <!--  -->
     <div class="view view-second">
         <img src="{{ post.cover.url}}"  alt="{{ post.title }}" width="300" height="300">
         <div class="mask"></div>
