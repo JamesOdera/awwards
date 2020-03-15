@@ -13,7 +13,7 @@
 
 
     <div class="lee">
-      <h4 style="color: white; cursor: pointer;"><b> Site of the Day</b> March 15, 2020 </h4>
+      <h4 style="color: white; cursor: pointer;"><b> Site of the Day</b> March 16, 2020 </h4>
       <i style="font-size:24px; float: right; color: white;" class="fa">&#xf1e0;</i>
 
 
@@ -21,6 +21,14 @@
             
             <h1 style="font-size: 50px; font-weight: 900; color: white; "> News Blogg </h1>
             <p class='text-center' style=" font-weight: 100; color: white;"> By james from Kenya</p>
+
+            <div class="cont">
+              <div id="activeBorder" class="active-border">
+                  <div id="circle" class="circle">
+                      <span class="prec 270" id="prec">0%</span>
+                  </div>
+              </div>
+          </div>
             
         </div>
         <a href="{% url 'login' %}"><button class="button">Visit Site</button></a>
@@ -77,7 +85,46 @@ function myFunction() {
    element.classList.toggle("dark-mode");
 }
 </script>
+<script>
+  var i = 0 , prec;
+var degs = $("#prec").attr("class").split(' ')[1];
+var activeBorder = $("#activeBorder");
 
+setTimeout(function(){
+    if($("#circle").is(":hover"))
+       loopit("c");
+    else
+       loopit("nc");
+},1);
+
+function loopit(dir){
+    if (dir == "c")
+        i++
+    else
+        i--;
+    if (i < 0)
+        i = 0;
+    if (i > degs)
+        i = degs;
+    prec = (100*i)/360;   
+    $(".prec").html(Math.round(prec)+"%");
+    
+    if (i<=180){
+        activeBorder.css('background-image','linear-gradient(' + (90+i) + 'deg, transparent 50%, #A2ECFB 50%),linear-gradient(90deg, #A2ECFB 50%, transparent 50%)');
+    }
+    else{
+        activeBorder.css('background-image','linear-gradient(' + (i-90) + 'deg, transparent 50%, #39B4CC 50%),linear-gradient(90deg, #A2ECFB 50%, transparent 50%)');
+    }
+    
+    setTimeout(function(){
+        if($("#circle").is(":hover"))
+            loopit("c");
+        else
+           loopit("nc");
+    },1);
+    
+}
+</script>
 
 <script>
     /* 
