@@ -216,14 +216,14 @@ h1
    * Custom styles
    */
   .btn {
-    background-color: #dbdbdb;
+    background-color: #ffffff;
     border-color: #bbb;
     color: #666;
   }
   .btn:hover,
   .btn.active {
     text-shadow: 0 1px 0 #b12f27;
-    background-color: #f64136;
+    background-color: #816c6b;
     border-color: #b12f27;
   }
   .btn:active { box-shadow: 0 0 5px 3px rgba(0,0,0,0.2) inset; }
@@ -367,3 +367,6 @@ h1
     
 }
   
+.profile {
+  background-color: rgb(221, 221, 221);
+}

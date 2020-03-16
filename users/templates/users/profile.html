@@ -1,4 +1,5 @@
 {%extends 'lee/base.html'%}
+{% load static%}
 {% load crispy_forms_tags %}
 <!DOCTYPE html>
 <html lang="en">
@@ -11,6 +12,7 @@
 
 {% block content %}
 {{block.super}}
+<div class="profile">
 <div class="container">
     <div class="row">
     <div class="profile-header-container">
@@ -22,10 +24,10 @@
         <h2 class="text center">{{ user.bio }}</h2>
     </div>
     </div>
-    <form method="POST" enctype="multipart/form-data">
+    <form class="col-md-6" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         <fieldset class="form-group">
-            <h1 class=""> Profile info </h1>
+            <h1 class=""> Update Profile</h1>
               {{ user_form |crispy }}
               {{ profile_form |crispy }}
             <div class="form-group">
@@ -34,7 +36,8 @@
         </fieldset>
     </form>
 </div>
+</div>
 {% endblock %}
-    
+
 </body>
 </html>
