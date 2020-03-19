@@ -4,11 +4,19 @@ Django==1.11.28
 django-bootstrap3==12.0.3
 django-bootstrap4==1.1.1
 django-crispy-forms==1.9.0
+django-generic-positions==0.2.3
 django-heroku==0.3.1
+django-hvad==1.8.0
+django-libs==2.0.2
+django-rated-reviews==0.6.0
+-e git://github.com/bitmazk/django-review.git@70d4b5c8d52d9a5615e5d0f5c7f147e15573c566#egg=django_review
+django-user-media==1.2.5
+easy-thumbnails==2.7
 gunicorn==20.0.4
 Pillow==7.0.0
 psycopg2==2.8.4
 python-decouple==3.3
 pytz==2019.3
+simplejson==3.17.0
 soupsieve==2.0
 whitenoise==5.0.1
