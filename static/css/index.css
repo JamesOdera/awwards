@@ -49,10 +49,9 @@ h1
   
   
   .view {
-    width: 300px;
-    height: 250px;
+    width: 400px;
+    height: 400px;
     margin: 10px;
-    margin-left: 50px;
     float: left;
     border: 10px solid #fff;
     overflow: hidden;
@@ -70,10 +69,7 @@ h1
     top: 0;
     left: 0
 }
-.view img {
-    display: block;
-    position: relative
-}
+
 .view h2 {
     text-transform: uppercase;
     color: #fff;
@@ -95,6 +91,8 @@ h1
 
 .view-second img { 	
 	transition: all 0.2s ease-in;
+  width: 400px;
+    height: 400px;
 }
 .view-second .mask { 
 	background-color: rgba(115,146,184, 0.5); 
@@ -116,9 +114,9 @@ h1
 	transform: translate(-200px, 200px);
 	transition: all 0.2s ease-in-out;
 }
-.view-second a.info { 
-    transform: translate(0px, 100px);
-	transition: all 0.2s 0.1s ease-in-out;
+.view-second a { 
+  color: red;
+  font-size: 20px;
 } 
 
 .view-second:hover .mask { 
@@ -250,6 +248,9 @@ h1
     border: 1px solid #51D2B7;
     overflow: hidden;
     width: 130px;
+    font-size{
+      10px-
+    }
   }
   
   .button:hover {
@@ -370,3 +371,10 @@ h1
 .profile {
   background-color: rgb(221, 221, 221);
 }
+
+.comment {
+    margin: 20px 0px 20px 20px;
+}
+
+
+

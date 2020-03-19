@@ -36,20 +36,31 @@
        
 </div>
 
-<div class="container">
+
+
     {% for post in posts %}
+
+    
+
+<div class="container">
 
     <div class="view view-second">
         <img src="{{ post.cover.url}}"  alt="{{ post.title }}" width="300" height="300">
         <div class="mask"></div>
         <div class="content">
             <h2>{{ post.title }}</h2>
+            
             <p>{{ post.pub_date|timesince }} ago </p>
+            <p><a href="{% url 'review_create' content_type='post' object_id=post.pk %}">Review</a></p>
             <p> {{ post.content }} </p>
             <p><a href="#" title="Love it" class="btn btn-counter multiple-count" data-count="0"><span>&#x2764;</span></a></p>
+            <p><a href="{% url 'comment'%}">Comments: {{ post.comments.count }}</a></p>
             <p><a href="{% url 'login' %}" class=""><button class="button"> Vote </button></a></p>
+            
         </div>
+    
     </div>
+    
     
     <!-- <div class="col-md-4">
      <div class="media">
@@ -76,6 +87,8 @@
          </div>
          </div> -->
     {% endfor %}
+    
+
 </div>
 <button class="button" onclick="myFunction()"> dark mode</button>
 

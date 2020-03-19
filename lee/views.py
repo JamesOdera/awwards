@@ -3,7 +3,8 @@ from django.http  import HttpResponse
 from django.views.generic import ListView, CreateView, UpdateView
 import datetime as dt
 from .models import Post
-from django.contrib.auth.mixins import LoginRequiredMixin 
+from django.contrib.auth.mixins import LoginRequiredMixin
+
 
 def index(request):
     date = dt.date.today()
@@ -12,6 +13,9 @@ def index(request):
         'posts': Post.objects.all()
     }
     return render(request, 'lee/index.html', {"date": date, "images": images},context)
+
+def comment(request):
+    return render(request, 'comment.html')
 
 class PostListView(ListView):
     model = Post
@@ -36,4 +40,5 @@ def convert_dates(dates):
     day = days[day_number]
     return day
 
-    
+
+
