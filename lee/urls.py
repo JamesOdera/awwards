@@ -8,7 +8,6 @@ urlpatterns=[
     url(r'^$',PostListView.as_view(),name = 'index'),
     url(r'^post/new/', PostCreateView.as_view(), name = 'post-create'),
     url(r'^review/', include('review.urls')),
-    url('^comment/',views.comment,name = 'comment'),
 ]
 if settings.DEBUG:
     urlpatterns+= static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

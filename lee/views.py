@@ -14,8 +14,6 @@ def index(request):
     }
     return render(request, 'lee/index.html', {"date": date, "images": images},context)
 
-def comment(request):
-    return render(request, 'comment.html')
 
 class PostListView(ListView):
     model = Post
