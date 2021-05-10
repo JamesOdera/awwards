@@ -1,0 +1,104 @@
+{% extends 'app/base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    {% block content %}
+    {{block.super}}
+    <section class="des">
+        <div id="des" class="container-fluid">
+            <div class="des__first">
+                <p> Nominees / <span>The Armenian Genocide</span> from <span>Armenia</span> </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="post__detail">
+        <div class="post__detailSection">
+            <div class="row justify-content-center">
+                <div class="col-10">
+                    <div class="card">
+                        <div class="card-img-container">
+                            <a href=" {% if post.image_url %} {{post.image_url}} {% else %} {{post.get_absolute_url}} {% endif %} ">
+                                <div class="card-img" style="background-image: url('{% for post in post.images_set.all %} {{ post.image.url }} {% endfor %}');">
+                                    <div class="hide">
+                                        <div class="card-img__down">
+                                            <span><i class="fas fa-share"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div id="like-section">
+                            {% include 'app/like_section.html' %}
+                        </div>
+                        
+                        <!-- <a href="" class="btn btn-info btn-block btn-lg">VOTE NOW</a> -->
+                        <div class="card-body">
+                            <h4>{{post.title}}</h4>
+                            <p>BY {{post.author|upper}}</p>
+                            <p> {{post.description}} </p>
+                            <div class="btns">
+                                <button>Art &#38; Illustrations</button>
+                                <button>Culture &#38; Education</button>
+                                <button>Experimental</button>
+                                <button>Animation</button>
+                                <button>Fullscreen</button>
+                                <button>Horizontal Layout</button>
+                            </div>
+                            <div class="btns">
+                                <button>Typography</button>
+                                <button>Storytelling</button>
+                                <button>UI design</button>
+                                <button>SVG</button>
+                                <button>WebGL</button>
+                                <button>GSAP Animation</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="user__votes">
+        <div class="user__votesSection">
+            <div class="row justify-content-center">
+                <div class="col-10">
+                    <div class="card user__vote">
+                        <div class="card-header">
+                            <p class="uv">USER VOTES</p>
+                            <span><i class="fas fa-info"></i></span>
+                        </div>
+                        <div class="card-header">
+                            <div class="user__voteInfo">
+                                <i class="far fa-user-circle"></i>
+                                <h6>James Odera from Nairobi</h6>
+                            </div>
+                            <p class="v">Voted</p>
+                        </div>
+                        <div class="card-header">
+                            <div class="user__voteInfo">
+                                <i class="far fa-user-circle"></i>
+                                <h6>James Odera from Nairobi</h6>
+                            </div>
+                            <p class="v">Voted</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    {% endblock %}
+</body>
+
+</html>

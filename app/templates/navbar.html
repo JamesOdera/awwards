@@ -1,0 +1,57 @@
+<section class="section">
+    <div class="nav__header">
+        <div class="nav__headerLeft">
+            <h6> English </h6>
+        </div>
+        <div class="nav__headerCenter">The awards of design, creativity and innovation on the internet</div>
+        <div class="nav__headerRight">
+            <i class="fab fa-instagram-square"></i>
+            <i class="fab fa-twitter"></i>
+            <i class="fab fa-facebook-f"></i>
+        </div>
+    </div>
+    <div id="navbar">
+        <div class="navbar__headerLeft"  onclick="openNav()">
+            <i class="fas fa-bars"></i>
+            <h6> MENU </h6>
+        </div>
+        <div class="navbar__headerCenter">
+            <form class="navbar__input" action="{% url 'index' %}">
+                <i class="fas fa-search"></i>
+                <input type="search" placeholder="Search for Inspiration" name="q" />
+            </form>
+            <!-- <i class="fas fa-search"></i> -->
+            <h3> awwwards. </h3>
+            <div class="auth__area">
+                {% if request.user.is_authenticated %}
+                <div class="auth__areaProfile">
+                    <div id="hr" class="header__info">
+                        <a href="{% url 'edit_profile' %}">
+                            {% if request.user.profile.photo %}
+                            <img src="{{ request.user.profile.photo.url }}" alt="" class="nav-img">
+                            {% else %}
+                            <img src="/media/default.jpg" alt="" class="nav-img">
+                            {% endif %}
+                            <!-- <i class="far fa-user-circle"></i> -->
+                        </a>
+                        <h6>{{request.user}}</h6>
+                    
+                    </div>
+                    <a href="{% url 'user_logout' %}" class="logout">
+                        <h6>Log Out</h6>
+                    </a>
+                </div>
+                {% else %}
+                <a href="{% url 'user_login' %}" class="login">
+                    <h6>REGISTER/LOG IN</h6>
+                </a>
+                {% endif %}
+            </div>
+        </div>
+        <a href="{% url 'post_create' %}">
+        <div class="navbar__headerRight">
+            <h6> SUBMIT YOUR SITE! </h6>
+        </div>
+        </a>
+    </div>
+</section>

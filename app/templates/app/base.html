@@ -1,0 +1,148 @@
+{% load bootstrap4 %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% if title %}
+    <title>Awwards - {{title}} </title>
+    {% else %}
+    <title>Awwards</title>
+    {% endif %}
+
+    {% block styles %}
+        {% bootstrap_css %}
+        <link rel="stylesheet" href="{% static 'css/index.css' %}">
+        <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+        <link rel="stylesheet" href="{% static 'css/detail.css' %}">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Open+Sans&family=Roboto&display=swap"
+            rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+            integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+            crossorigin="anonymous" />
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+            integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    {% endblock %}
+</head>
+<body id="msg">
+
+    <div id="main">
+    {% include 'navbar.html' %}
+
+    {% include 'sidenav.html' %}
+
+    {% block content %} {% endblock %}
+    </div>
+
+    {% block scripts %}
+        <script src="{% static 'js/script.js' %}" ></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+            crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-circle-progress/1.2.2/circle-progress.min.js"
+            integrity="sha512-6kvhZ/39gRVLmoM/6JxbbJVTYzL/gnbDVsHACLx/31IREU4l3sI7yeO0d4gw8xU5Mpmm/17LMaDHOCf+TvuC2Q=="
+            crossorigin="anonymous"></script>
+        <script type="text/javascript">
+            $(document).ready(function (event) {
+                $(document).on('click', '#like', function (event) {
+                    event.preventDefault();
+                    var pk = $(this).attr('value');
+                    $.ajax({
+                        type: 'POST',
+                        url: '{% url "like_post" %}',
+                        data: { 'id': pk, 'csrfmiddlewaretoken': '{{ csrf_token }}' },
+                        dataType: 'json',
+                        success: function (response) {
+                            $('#like-section').html(response['form'])
+                            $('#like_sections').html(response['form'])
+                            // console.log($('#like-section').html(response['form']))
+                        },
+                        error: function (rs, e) {
+                            console.log(rs.responseText);
+                        },
+                    });
+                });
+            });
+        </script>
+
+        <script>
+            function openNav() {
+                document.getElementById("mySidenav").style.width = "350px";
+                // document.getElementById("main").style.marginLeft = "250px";
+                // document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+            }
+
+            function closeNav() {
+                document.getElementById("mySidenav").style.width = "0";
+                // document.getElementById("main").style.marginLeft = "0";
+                // document.body.style.backgroundColor = "white";
+            }
+        </script>
+        <script>
+            window.onscroll = function () { myFunction() };
+
+            var navbar = document.getElementById("navbar");
+            var sticky = navbar.offsetTop;
+
+            function myFunction() {
+                if (window.pageYOffset >= sticky) {
+                    navbar.classList.add("sticky")
+                } else {
+                    navbar.classList.remove("sticky");
+                }
+            }
+        </script>
+
+        <script>
+            $(document).ready(function () {
+
+                    $(window).scroll(function () {
+                        if ($(this).scrollTop() > 100) {
+                            //change yes to no
+                            $('h3').html('W.');
+                        } else {
+                            //set h1 text to yes
+                            $('h3').html('awwwards.');
+                        }
+                    });
+                });
+        </script>
+
+        <!-- <script>
+            var toggled = false;
+
+                var switchHolder = document.getElementById("outer-div");
+                var switchButton = document.getElementById("inner-div");
+
+                switchButton.addEventListener('click', function () {
+                    if (!toggled) {
+                        switchButton.style.transition = ".4s all ease-in-out";
+                        switchButton.style.transform = "translateX(30px)";
+                        switchButton.style.backgroundColor = "rgb(73 197 182)";
+                        switchHolder.style.border = "2px solid rgb(73 197 182)";
+                        document.getElementById("msg").style.color = "#f4f7f6";
+                        document.body.style.backgroundColor = "black";
+
+                        toggled = true;
+                    } else {
+
+                        switchButton.style.transition = ".4s all ease-in-out";
+                        // switchButton.style.transform = "translateX(-1px)";
+                        switchButton.style.transform = "translateX(1px)";
+                        switchButton.style.backgroundColor = "black";
+                        switchHolder.style.border = "2px solid black";
+                        document.getElementById("msg").style.color = "black";
+                        document.body.style.backgroundColor = "#f4f7f6 ";
+
+                        toggled = false;
+                    }
+                });
+        </script> -->
+        
+        {% bootstrap_javascript %}
+    {% endblock %}
+</body>
+</html>

@@ -1,0 +1,76 @@
+{% extends 'app/base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    {% block content %}
+    {{block.super}}
+
+    <section class="section__main">
+        <div class="main__section">
+            <div class="row">
+                {% for post in posts %}
+                <div class="col-4" style="margin-top: 30px;">
+                    <div class="card">
+                        <div class="card-img-container">
+                            <a href="{{post.get_absolute_url}}">
+                                <div class="card-img"
+                                    style="background-image: url('{% for post in post.images_set.all %} {{ post.image.url }} {% endfor %}');">
+                                    <div class="hide">
+                                        <div class="card-img__up">
+                                            <div class="card-img__upIcon">
+                                                <span><i class="fab fa-facebook-f"></i></span>
+                                                <span><i class="fab fa-twitter"></i></span>
+                                                <span><i class="fab fa-pinterest-p"></i></span>
+                                                <span><i class="fab fa-linkedin-in"></i></span>
+                                            </div>
+                                            <button> Collect </button>
+                                        </div>
+                                    </div>
+                                    <div class="hide">
+                                        <div class="card-img__center">
+                                            <button>Vote Now</button>
+                                        </div>
+                                    </div>
+                                    <div class="hide">
+                                        <div class="card-img__down">
+                                            <span><i class="fas fa-share"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="card-body">
+                            <p>{{post.title}}</p>
+                            <div class="des">
+                                <p>{{post.location}}</p>
+                                <p>{{post.created|date:" F d, Y"}}</p>
+                            </div>
+                            <div class="des__down">
+                                <div class="des__one">
+                                    <p>BY {{post.author|upper}}</p>
+                                </div>
+                                <div class="des__two">
+                                    <p>cool</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    
+    {% endblock %}
+</body>
+
+</html>

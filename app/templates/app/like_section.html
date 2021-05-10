@@ -1,0 +1,16 @@
+{% if request.user.is_authenticated %}
+<form action="{% url 'like_post' %}" method="post">
+    {% csrf_token %}
+    {% if is_liked %}
+    <button name="post_id" id="like" value="{{ post.id }}" class="btn btn-info btn-block btn-lg">
+        {{ post.total_likes }} vote{{ post.total_likes|pluralize }}
+    </button>
+    {% else %}
+    <button name="post_id" id="like" value="{{ post.id }}" class="btn btn-info btn-block btn-lg">
+        Vote Now
+    </button>
+    {% endif %}
+</form>
+{% else %}
+<a href="{% url 'user_login' %}" class="btn btn-info btn-block btn-lg">VOTE NOW</a>
+{% endif %}
